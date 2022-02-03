@@ -1,0 +1,49 @@
+@media(max-width: 520px){
+  .modal__category{
+    //z-index: 1005;
+    .modal__content{
+      width: 95%;
+    }
+  }
+  .modal__action{
+    .modal_links{
+      width: 95%;
+    }
+  }
+  .modal__more{
+    .modal__box{
+      width: 95%;
+    }
+  }
+}
+@media (max-width : 430px) {
+  .modal__category{
+    .modal_content{
+      width: 95%;
+      padding: 25px;
+    }
+  }
+  .categories__box {
+    .item__category{
+      width: 100%;
+      margin: 0 auto 1rem auto;
+    }
+  }
+  .filter__tab{
+    .custom__input{
+      &#AllTasks ,&#CompletedTask{
+        min-width: 44%;
+      }
+    }
+  }
+
+}
+@media (max-width: 360px) {
+  .filter__tab{
+    margin: 1.5rem 0;
+    flex-direction: column;
+    .custom__input{
+      margin-bottom: 0.5rem;
+    }
+  }
+}

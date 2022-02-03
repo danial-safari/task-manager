@@ -1,0 +1,372 @@
+// Fonts
+@import "fonts";
+//normalize
+@import "normalize";
+// variables
+@import "variables";
+// mixin
+@import "mixin";
+body{
+  max-width: 520px;
+  margin: 0 auto;
+  font-family: 'Circular Std';
+  box-shadow: 0 5px 6px #eee;
+  min-height: 100vh;
+  height: 100%;
+  padding: 2rem;
+  position: relative;
+  box-sizing: border-box;
+  overflow-x: hidden;
+
+}
+.header__main{
+  a{
+    color: $text-light;
+    .icon-svg{
+      margin-right: 5px;
+    }
+  }
+}
+.main__title{
+  h1{
+    color: $text-primary;
+  }
+}
+/* Home Styles */
+.categories__box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .item__category{
+    width: 48%;
+    border-radius: 31px;
+    min-height: 150px;
+    margin-top: 1rem;
+    cursor: pointer;
+    position: relative;
+    .category__header{
+      position: absolute;
+      right: 4px;
+      padding: 24px;
+    }
+    .category__content{
+      text-align: center;
+      font-weight: 900;
+      display: flex;
+      justify-content: center;
+      word-break: break-word;
+      height: 100%;
+      color: $text-white;
+      align-items: center;
+    }
+    .category__footer{
+      position: relative;
+      bottom: 36px;
+      display: flex;
+      justify-content: space-around;
+      color: white;
+      font-size: 13px;
+    }
+  }
+}
+/* Tasks Styles */
+.filter__tab{
+  margin: 2.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  .custom__input{
+    position: relative;
+    display: block;
+    transition: all 0.3s ease;
+    border-radius: 14px;
+    cursor: pointer;
+    z-index: 14;
+    color: $text-white;
+    font-size: 1.3rem;
+    padding: 22px 7px 22px 55px;
+    box-sizing: border-box;
+    min-width: calc(98% / 3);
+    &:hover{
+      transform: scale(1.05);
+    }
+    &#TodoTask{
+      box-shadow: 0px 0px 15px $primary-color;
+      background: $text-primary;
+    }
+    &#DoingTask{
+      box-shadow: 0px 0px 15px $danger-color;
+      background: $danger-color;
+    }
+    &#DoneTask{
+      box-shadow: 0px 0px 15px $text-success;
+      background: $text-success;
+    }
+    input[type=radio]{
+      position: absolute;
+      visibility: hidden;
+      &:checked ~ .check::before{
+        background: #2b2b3e;
+      }
+    }
+
+    .check{
+      position: absolute;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      z-index: 0;
+      background: $text-white;
+      left: 14px;
+      top: 32%;
+       &:before{
+         content: ' ';
+         width: 18px;
+         height: 18px;
+         border-radius: 50%;
+         position: absolute;
+         left: 3px;
+         top: 3px;
+       }
+    }
+  }
+}
+.steps-enter-active {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.4s;
+}
+
+.steps-enter-to {
+  opacity: 1;
+  transform: translateX(0px);
+}
+.steps-leave-active{
+  opacity: 1;
+  transform: translateX(0px);
+}
+.fadeOut-leave-active {
+  transition: all 0.5s;
+}
+.fadeOut-leave-to{
+  opacity: 0;
+}
+.steps-leave-to{
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.4s;
+}
+.task__section{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background: $dark-color;
+  border-radius: 1rem;
+  padding: 22px 15px;
+  box-sizing: border-box;
+  cursor: pointer;
+  box-shadow: 0px -1px 22px $dark-shadow;
+  margin-bottom: 1rem;
+  transition: 0.3s ease;
+  &.success{
+    background: $success-color;
+    box-shadow: 0px -1px 22px $success-color;
+    .check-icon{
+      position: absolute;
+      margin-top: 7px;
+    }
+    .doing-icon{
+      position: absolute;
+    }
+    h6{
+      padding-left: 35px;
+    }
+  }
+  &.danger{
+    background: $danger-color;
+    box-shadow: 0px -1px 22px $danger-color;
+    .doing-icon{
+      position: absolute;
+    }
+    h6{
+      padding-left: 35px;
+    }
+  }
+  &:hover{
+    transform: scale(1.02);
+  }
+  h6{
+    color: $text-white;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  a{
+    position: relative;
+    top: 3px;
+    right: 5px;
+  }
+}
+.modal__more{
+  @include modal;
+  z-index: 1000;
+  .modal__box{
+    position: relative;
+    padding:10px 31px ;
+    box-sizing: border-box;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 35px;
+    background: $dark-color;
+    box-shadow: 0px -1px 20px $dark-shadow;
+    color: $text-white;
+    width: 400px;
+  }
+}
+
+.modal__action {
+  @include modal;
+  z-index: 9999;
+  .modal_links {
+    position: relative;
+    padding:10px 31px ;
+    box-sizing: border-box;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 35px;
+    background: $dark-color;
+    box-shadow: 0px -1px 20px $dark-shadow;
+    color: $text-white;
+    width: 400px;
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        text-align: center;
+        list-style: none;
+        text-decoration: none;
+        border-bottom:1px solid $border-modal;
+        a{
+          color: $text-white;
+          padding: 20px 0;
+          width: 100%;
+          display: block;
+        }
+        &:first-child a{
+          color: $text-success ;
+        }
+
+        &:last-child{
+          border-bottom:none;
+          a{
+            color: $text-danger;
+          }
+        }
+
+      }
+    }
+  }
+}
+.modal__category{
+  @include modal;
+  .modal_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    padding: 30px;
+    box-sizing: border-box;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 40px;
+    background: $primary-color;
+    box-shadow: 0px -1px 20px $primary-color;
+    color: $text-white;
+    width: 400px;
+
+    h2 {
+      margin: 0 0 2rem 0;
+      text-align: center;
+    }
+
+    input {
+      padding: 20px;
+      border-radius: 15px;
+      outline-width: 0;
+      border: 0;
+      background: rgba(255, 255, 255, .72);
+      font-style: italic;
+      font-size: 20px;
+      &::placeholder{
+        color: rgba(39, 85, 104, 0.31);
+      }
+    }
+
+    button {
+      margin-top: 0.5rem;
+      padding: 12px;
+      border-radius: 22px;
+      background: #27F79C;
+      color: #fff;
+      font-size: 26px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+  }
+}
+/*Create Task*/
+.create__task{
+  input{
+    border: 0;
+    border-bottom: 1px solid;
+    padding: 15px 0 10px 0;
+    width: 100%;
+    font-size: 1.5rem;
+
+    &:focus, &:active , &:focus-visible{
+      outline: none;
+    }
+    &::placeholder{
+      color: $text-light;
+    }
+  }
+  textarea{
+    border: 0;
+    padding: 20px 0;
+    width: 100%;
+    font-size: 1.2rem;
+    &:focus-visible{
+      outline: none;
+    }
+    &::placeholder{
+      color: $text-light;
+    }
+  }
+}
+footer{
+  direction: rtl;
+  .navigation__button{
+    background: $primary-color;
+    border-radius: 50%;
+    direction: rtl;
+    bottom: 20px;
+    position: fixed;
+    width: 57px;
+    height: 57px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    z-index: 999;
+    &:hover{
+      transform: translateY(-3px);
+    }
+    box-shadow: 0px 0px 25px $primary-color;
+    .icon-svg{
+      top: 2px;
+      position: relative;
+    }
+  }
+}
+//responsive
+@import "responsive";
